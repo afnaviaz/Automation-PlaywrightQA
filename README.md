@@ -1,4 +1,4 @@
 # Automation-PlaywrightQA
 
-Autores: Andres Navia
-         Luis Fernando AStudillo
+By: -Andres Navia - andres.navia@fikargo.com
+    -Luis Fernando AStudillo - luis.astudillo@fikargo.com
