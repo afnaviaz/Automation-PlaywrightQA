@@ -17,5 +17,13 @@
   },
   "dependencies": {
     "playwright": "^1.47.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afnaviaz/Automation-PlaywrightQA.git"
+  },
+  "bugs": {
+    "url": "https://github.com/afnaviaz/Automation-PlaywrightQA/issues"
+  },
+  "homepage": "https://github.com/afnaviaz/Automation-PlaywrightQA#readme"
 }
