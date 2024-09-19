@@ -1,0 +1,24 @@
+# Node.js dependencies
+node_modules/
+
+# Playwright files
+playwright-report/
+tests-examples/
+test-results/
+__test__/
+
+# Allure files
+allure-results/
+allure-report/
+
+# Archivos de configuración de Playwright (si deseas ignorarlos)
+# playwright.config.ts
+# playwright.config.js
+
+# Otros archivos de configuración innecesarios
+package-lock.json
+*.log
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
