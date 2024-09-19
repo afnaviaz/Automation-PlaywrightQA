@@ -30,7 +30,7 @@ cd <nombre-del-directorio>
 ## 3. Instalar dependencias
 Para instalar las dependencias del proyecto, incluyendo Playwright, ejecuta el siguiente comando dentro de la carpeta del proyecto:
 ```bash
-npm install
+npm init -y
 ```
 
 Esto descargará e instalará todas las dependencias necesarias definidas en el archivo package.json.
@@ -38,12 +38,7 @@ Esto descargará e instalará todas las dependencias necesarias definidas en el 
 ## 4. Instalar Playwright
 Si Playwright no se ha instalado automáticamente con las dependencias, puedes instalarlo manualmente ejecutando:
 ```bash
-npm  install playwright
-```
-Instalar navegadores:
-
-```bash
-npx playwright install
+npm install @playwright/test --save-dev
 ```
 
 ## 5. Instalar Allure para generar reportes
@@ -52,27 +47,34 @@ Para utilizar Allure como generador de reportes, sigue estos pasos:
 ### 5.1 Instalar Allure como dependencia de desarrollo
 Añade Allure como dependencia de desarrollo a tu proyecto:
 ```bash
-npm install -D allure-playwright
+npm install allure-playwright --save-dev
 ```
 
-### 5.2 Instalar Allure en tu máquina local
-Allure no se instala automáticamente con npm, así que debes instalarlo globalmente en tu sistema. Puedes hacerlo con npm o Homebrew (para usuarios de macOS):
-
-Usando npm:
-```bash
-npm install -g allure-commandline --save-dev
-```
-Usando Homebrew (macOS):
-
-```bash
-brew install allure
-```
-### 5.3 Verificar la instalación de Allure
+### 5.2 Verificar la instalación de Allure
 Para asegurarte de que Allure está correctamente instalado, ejecuta:
 
 ```bash
 allure --version
 ```
+### 5.3 Configurar Allure en Playwright:
+Para habilitar los reportes de Allure en Playwright, necesitas agregar el plugin de Allure en tu archivo de configuración de Playwright (playwright.config.ts o playwright.config.js).
+
+Ejemplo de configuración básica: Si tienes un archivo playwright.config.ts, añade lo siguiente:
+```typescript
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  reporter: [
+    ['list'],
+    ['allure-playwright']
+  ],
+  use: {
+    // Configuraciones adicionales si las necesitas
+  },
+});
+
+```
+
 ## 6. Ejecución de pruebas
 Para ejecutar las pruebas automatizadas de Playwright, simplemente ejecuta el siguiente comando:
 ```bash
@@ -81,10 +83,19 @@ npx playwright test
 ## 7. Generar reportes Allure
 Después de ejecutar las pruebas, puedes generar un reporte de Allure con el siguiente comando
 ```bash
-npx allure generate allure-results --clean -o allure-report
+npx allure generate ./allure-results --clean
  ```
  Esto generará un reporte HTML que puedes abrir en tu navegador ejecutando:
 
 ```bash
-npx allure open allure-report
+npx allure open
 ```
+
+## Resumen de pasos:
+1. Copia el proyecto al repositorio clonado.
+2. Inicializa el proyecto Node.js si es necesario (npm init -y).
+3. Instala Playwright (npm install @playwright/test --save-dev).
+4. Instala Allure Playwright (npm install allure-playwright --save-dev).
+5. Configura el reporte Allure en playwright.config.ts.
+6. Ejecuta las pruebas con npx playwright test.
+7. Genera y visualiza el reporte con Allure (npx allure generate y npx allure open).
