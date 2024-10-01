@@ -94,7 +94,7 @@ test('test', async ({ page }) => {
     await page.getByRole('option', { name: 'COLOMBIA' }).click();
     await page.locator('#custom-autocomplete-select-city_name_8a341d95-3315-40bc-9645-656fd9391a5a').click();
     await page.getByRole('option', { name: 'ABEJORRAL' }).click();
-    await page.getByLabel('Open').first().nth(0).click();
+    await page.getByLabel('Open').first().nth(1).click();
     await page.getByRole('option', { name: 'COLOMBIA +' }).click();
     await page.locator('#phone-cellphone_number').nth(1).click();
     await page.getByLabel('Número de celular *').fill('3127344251'); 
