@@ -5,7 +5,7 @@ node_modules/
 playwright-report/
 tests-examples/
 test-results/
-__test__/
+
 
 # Allure files
 allure-results/
